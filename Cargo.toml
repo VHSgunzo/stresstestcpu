@@ -1,0 +1,21 @@
+[package]
+name = "stresstestcpu"
+version = "0.0.1"
+readme = "README.md"
+license = "MIT"
+description = "Simple CPU stress-test in Rust"
+edition = "2021"
+
+[dependencies]
+clap = "2.33"
+
+[profile.release]
+lto = true
+panic = "abort"
+opt-level = "z"
+strip = "symbols"
+codegen-units = 1
+
+[profile.dev]
+panic = "abort"
+opt-level = 0
